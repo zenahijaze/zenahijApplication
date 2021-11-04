@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1009032204472",
+    "project_id": "zenahijapplication",
+    "storage_bucket": "zenahijapplication.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1009032204472:android:d813bed86cf4ae4955a44d",
+        "android_client_info": {
+          "package_name": "hij.zena.zenahijapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1009032204472-8ipoietjkc7qg40e4fipbgrm7d214ib6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAFgbhhZUizdhy5XAlmwxtMXEDF4Pxo_uo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1009032204472-8ipoietjkc7qg40e4fipbgrm7d214ib6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
