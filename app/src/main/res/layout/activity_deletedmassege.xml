@@ -4,15 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".splashscreen">
+    tools:context=".deletedmassege">
 
     <ImageView
-        android:id="@+id/imview"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/logo_foreground" />
+        android:id="@+id/imageView"
+        android:layout_width="413dp"
+        android:layout_height="87dp"
+        app:srcCompat="@mipmap/reanoon_foreground"
+        tools:layout_editor_absoluteX="-1dp"
+        tools:layout_editor_absoluteY="26dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

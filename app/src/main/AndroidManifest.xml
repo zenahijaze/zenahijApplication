@@ -10,6 +10,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ZenahijApplication">
         <activity
+            android:name=".importantpeople"
+            android:exported="true" />
+        <activity
+            android:name=".importantmassege"
+            android:exported="true" />
+        <activity
+            android:name=".deletedmassege"
+            android:exported="true" />
+        <activity
+            android:name=".login"
+            android:exported="true" />
+        <activity
             android:name=".splashscreen"
             android:exported="true" />
         <activity
