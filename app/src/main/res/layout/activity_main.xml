@@ -8,26 +8,69 @@
 
     <ImageButton
         android:id="@+id/imgbtnO"
-        android:layout_width="129dp"
-        android:layout_height="106dp"
-        app:srcCompat="@mipmap/reanoon_foreground"
-        tools:layout_editor_absoluteX="275dp"
-        tools:layout_editor_absoluteY="4dp" />
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="7dp"
+        android:layout_marginBottom="7dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imgbtnF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imgbtnT"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/reanoon_foreground" />
 
     <ImageButton
         android:id="@+id/imgbtnT"
-        android:layout_width="121dp"
-        android:layout_height="106dp"
-        app:srcCompat="@mipmap/mass_foreground"
-        tools:layout_editor_absoluteX="129dp"
-        tools:layout_editor_absoluteY="4dp" />
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="25dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imgbtnO"
+        app:layout_constraintEnd_toStartOf="@+id/imgbtnO"
+        app:layout_constraintStart_toEndOf="@+id/imgbtnF"
+        app:layout_constraintTop_toTopOf="@+id/imgbtnF"
+        app:srcCompat="@mipmap/mass_foreground" />
 
     <ImageButton
         android:id="@+id/imgbtnF"
-        android:layout_width="112dp"
+        android:layout_width="0dp"
         android:layout_height="113dp"
-        app:srcCompat="@mipmap/person_foreground"
-        tools:layout_editor_absoluteX="-3dp"
-        tools:layout_editor_absoluteY="4dp" />
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="19dp"
+        app:layout_constraintEnd_toStartOf="@+id/imgbtnT"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/person_foreground" />
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/imgbtnT"
+        tools:context=".MainActivity">
+
+        <Button
+            android:id="@+id/btnCreateNotification"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:text="Create Notification" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/btnCreateNotification"
+            android:layout_alignStart="@+id/btnCreateNotification"
+            android:layout_alignEnd="@+id/btnCreateNotification"
+            android:layout_alignParentBottom="true">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="NotificationListenerService Example"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+        </ScrollView>
+    </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

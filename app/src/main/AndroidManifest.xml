@@ -12,6 +12,7 @@
         <activity
             android:name=".importantpeople"
             android:exported="true" />
+
         <activity
             android:name=".importantmassege"
             android:exported="true" />
@@ -33,6 +34,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <service
+            android:name=".Mynotificationservice"
+            android:enabled="true"
+            android:exported="true"></service>
     </application>
 
 </manifest>

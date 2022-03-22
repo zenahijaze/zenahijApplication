@@ -7,7 +7,7 @@
     tools:context=".deletedmassege">
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/imgv1"
         android:layout_width="413dp"
         android:layout_height="87dp"
         app:srcCompat="@mipmap/reanoon_foreground"

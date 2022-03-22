@@ -6,11 +6,16 @@
         <entry key="..\:/zena/zenahijApplication/app/src/main/res/drawable/background.xml" value="0.22135416666666666" />
         <entry key="..\:/zena/zenahijApplication/app/src/main/res/layout/activity_deletedmassege.xml" value="0.18229166666666666" />
         <entry key="..\:/zena/zenahijApplication/app/src/main/res/layout/activity_importantmassege.xml" value="0.18229166666666666" />
-        <entry key="..\:/zena/zenahijApplication/app/src/main/res/layout/activity_importantpeople.xml" value="0.18229166666666666" />
+        <entry key="..\:/zena/zenahijApplication/app/src/main/res/layout/activity_importantpeople.xml" value="0.33" />
         <entry key="..\:/zena/zenahijApplication/app/src/main/res/layout/activity_login.xml" value="0.2015625" />
         <entry key="..\:/zena/zenahijApplication/app/src/main/res/layout/activity_main.xml" value="0.1859375" />
+        <entry key="..\:/zena/zenahijApplication/app/src/main/res/layout/activity_menu1.xml" value="0.22871376811594202" />
         <entry key="..\:/zena/zenahijApplication/app/src/main/res/layout/activity_splashscreen.xml" value="0.2015625" />
+        <entry key="..\:/zena/zenahijApplication/app/src/main/res/menu/main_menu.xml" value="0.3619791666666667" />
+        <entry key="..\:/zena/zenahijApplication/app/src/main/res/menu/main_menu1.xml" value="0.1" />
+        <entry key="..\:/zena/zenahijApplication/app/src/main/res/menu/my_menu.xml" value="0.16458333333333333" />
         <entry key="..\:/zena/zenahijApplication/app/src/main/res/mipmap-anydpi-v26/masse.xml" value="0.1" />
+        <entry key="..\:/zena/zenahijApplication/app/src/main/res/mipmap-anydpi-v26/masse_round.xml" value="0.221875" />
       </map>
     </option>
   </component>

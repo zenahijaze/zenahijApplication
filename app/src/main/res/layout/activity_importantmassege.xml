@@ -7,7 +7,7 @@
     tools:context=".importantmassege">
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/imgv1"
         android:layout_width="410dp"
         android:layout_height="99dp"
         app:srcCompat="@mipmap/mass_foreground"
