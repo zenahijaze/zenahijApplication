@@ -40,6 +40,29 @@ public class MainActivity extends AppCompatActivity implements MyListener {
         imgbtnO = findViewById(R.id.imgbtnO);
         imgbtnT = findViewById(R.id.imgbtnT);
         imgbtnF = findViewById(R.id.imgbtnF);
+        imgbtnO.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(),deletedmassege.class));
+            }
+
+        });
+
+        imgbtnT.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(),importantmassege.class));
+            }
+
+        });
+        imgbtnF.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(),importantpeople.class));
+            }
+
+        });
+
         new Mynotificationservice().setListener(this);
         txtView = findViewById(R.id.textView);
         Button btnCreateNotification = findViewById(R.id.btnCreateNotification);
