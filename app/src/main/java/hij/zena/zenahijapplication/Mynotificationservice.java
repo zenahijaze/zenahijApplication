@@ -9,6 +9,16 @@ import android.os.IBinder;
 import android.service.notification.NotificationListenerService;
 import android.service.notification.StatusBarNotification;
 import android.util.Log;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import androidx.annotation.NonNull;
+import hij.zena.zenahijapplication.MyData.MyNote;
 
 public class Mynotificationservice extends NotificationListenerService {
     public Mynotificationservice() {
@@ -47,6 +57,7 @@ public class Mynotificationservice extends NotificationListenerService {
                 " \npackageName: " + packageName +
                 " \nTitle      : " + title +
                 " \nText       : " + text);
+        saveNote(packageName,title,text);
 //        switch (packageName) {
 //            case pkgWX:
 //                new WXClient(getApplicationContext()).onNotification(title, text);
@@ -62,6 +73,35 @@ public class Mynotificationservice extends NotificationListenerService {
                 " \nTitle      : " + title +
                 " \nText       : " + text );//sbn.getPackageName()+'\n'+sbn.getNotification(). tickerText) ;
     }
+
+    private void saveNote(String packageName, String title, String text) {
+        MyNote t = new MyNote();
+        t.setTitle(title);
+        t.setText(text);
+        t.setPkgname(packageName);
+        ///current user uid
+        String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        t.setOwner(uid);
+        FirebaseDatabase db = FirebaseDatabase.getInstance();
+        DatabaseReference ref = db.getReference();
+        String key = ref.child("myNotes").push().getKey();
+        t.setKey(key);
+        //add tasks to current user.
+        //just this user can see/read this tasks
+        ref.child("myNotes").child(uid).child(key).setValue(t).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {//response
+                if (task.isSuccessful()) {
+                    Toast.makeText(getApplicationContext(), "successfuly adding", Toast.LENGTH_SHORT).show();
+
+                } else {
+                    Toast.makeText(getApplicationContext(), "add not successful", Toast.LENGTH_SHORT).show();
+
+                }
+            }
+        });
+    }
+
     @Override
     public void onNotificationRemoved (StatusBarNotification sbn) {
         Log. i ( TAG , "********** onNotificationRemoved" ) ;
