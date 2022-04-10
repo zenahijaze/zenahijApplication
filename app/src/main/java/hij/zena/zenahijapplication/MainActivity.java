@@ -8,22 +8,11 @@ import android.widget.ImageButton;
 import android.app.NotificationChannel ;
 import android.app.NotificationManager ;
 import android.content.Intent ;
-import android.os.Bundle ;
 import android.view.Menu ;
 import android.view.MenuItem ;
 import android.view.View ;
 import android.widget.Button ;
 import android.widget.TextView ;
-import android.app.NotificationChannel ;
-import android.app.NotificationManager ;
-import android.content.Intent ;
-import android.os.Bundle ;
-import android.view.Menu ;
-import android.view.MenuItem ;
-import android.view.View ;
-import android.widget.Button ;
-import android.widget.TextView ;
-import  android.service.notification.NotificationListenerService;
 
 public class MainActivity extends AppCompatActivity implements MyListener {
     private ImageButton imgbtnO;
@@ -64,7 +53,7 @@ public class MainActivity extends AppCompatActivity implements MyListener {
         });
 
         new Mynotificationservice().setListener(this);
-        txtView = findViewById(R.id.textView);
+        txtView = findViewById(R.id.itmText);
         Button btnCreateNotification = findViewById(R.id.btnCreateNotification);
         btnCreateNotification.setOnClickListener(new View.OnClickListener() {
             @Override
