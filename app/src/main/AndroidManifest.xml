@@ -21,20 +21,21 @@
         <activity
             android:name=".splashscreen"
             android:exported="true" />
-        <activity android:name=".signinActivity2" android:exported="true" >
+        <activity
+            android:name=".signinActivity2"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".signupActivity2" android:exported="true" ></activity>
-
+        <activity
+            android:name=".signupActivity2"
+            android:exported="true" />
         <activity
             android:name=".MainActivity"
-            android:exported="true">
-
-        </activity>
+            android:exported="true"></activity>
 
         <service
             android:name=".Mynotificationservice"

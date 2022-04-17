@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ImageButton;
 import android.app.NotificationChannel ;
 import android.app.NotificationManager ;
@@ -103,7 +104,7 @@ public boolean onCreateOptionsMenu (Menu menu) {
     public void setValue(String packageName) {
 
 
-            txtView.append(" \n " + packageName);
-
+            //txtView.append(" \n " + packageName);
+        Log.d("ZENA"," \n " + packageName);
     }
 }
