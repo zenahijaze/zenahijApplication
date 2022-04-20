@@ -10,6 +10,11 @@ import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import hij.zena.zenahijapplication.R;
@@ -46,16 +51,46 @@ public class MyNoteAdapter extends ArrayAdapter<MyNote>
         TextView Text=v.findViewById(R.id.itmText);
         ImageButton BtnImpor=v.findViewById(R.id.itmBtnImpor);
         ImageButton BtnDel =v.findViewById(R.id.itmBtnDel);
+        ImageButton Btnneces=v.findViewById(R.id.itmBtnneces);
 
+        BtnDel.setOnClickListener(new View.OnClickListener() {
+                                      @Override
+                                      public void onClick(View v) {
+                                          FirebaseDatabase.getInstance().getReference().child("myNotes").child(item.getKey()).removeValue(new DatabaseReference.CompletionListener() {
+                                              @Override
+                                              public void onComplete(@Nullable DatabaseError error, @NonNull DatabaseReference ref) {
 
+                                              }
 
+                                          });
+                                      }
+                                  });
+
+        BtnImpor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FirebaseDatabase.getInstance().getReference().child("myNotes").child(item.getKey()).removeValue(new DatabaseReference.CompletionListener() {
+                    @Override
+                    public void onComplete(@Nullable DatabaseError error, @NonNull DatabaseReference ref) {
+
+                    }
+                });
+            }
+            });
+        Btnneces.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FirebaseDatabase.getInstance().getReference().child("myNotes").child(item.getKey()).removeValue(new DatabaseReference.CompletionListener() {
+                    @Override
+                    public void onComplete(@Nullable DatabaseError error, @NonNull DatabaseReference ref) {
+
+                    }
+                });
+            }
+        });
         //وضع قيم المعطى المستخرج على كائنات الواجهة
         title.setText(item.getTitle());
         PackageName.setText(item.getPkgname());
-
-
-
-
         return v;
-    }
-}
+    }}
+

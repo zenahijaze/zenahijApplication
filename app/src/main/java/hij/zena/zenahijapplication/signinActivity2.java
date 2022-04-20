@@ -27,8 +27,10 @@ public class signinActivity2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signin2);
         //اذا عندو حساب بنقل على الmainActivity
-        if (FirebaseAuth.getInstance().getCurrentUser() != null)
+        if (FirebaseAuth.getInstance().getCurrentUser() != null) {
+            finish();
             startActivity(new Intent(getApplicationContext(), MainActivity.class));
+        }
         etEmail = findViewById(R.id.etEmail);
         etPassword = findViewById(R.id.etPassword);
         btnregister = findViewById(R.id.btnregister);

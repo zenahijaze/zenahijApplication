@@ -10,6 +10,7 @@ public class MyNote
     private String pkgname;
    private boolean isimportant;
    private boolean isdeleteed;
+    private boolean isnecessity;
 
     public boolean isIsdeleteed() {
         return isdeleteed;
@@ -66,4 +67,17 @@ public class MyNote
     public void setIsimportant(boolean isimportant) {
         this.isimportant = isimportant;
     }
+
+    public boolean isnecessity() { return isnecessity;}
+    public void setIsnecessity(boolean isnecessity) {
+        this.isnecessity = isnecessity;
+    }
+
+
+
+
+
+
+
+
 }

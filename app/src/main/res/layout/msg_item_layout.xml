@@ -9,53 +9,62 @@
         android:id="@+id/itmBtnDel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="14dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="16dp"
         android:contentDescription="delet task"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/itmText"
         app:srcCompat="@android:drawable/ic_menu_delete" />
 
     <ImageButton
         android:id="@+id/itmBtnImpor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="8dp"
         android:contentDescription="edit task"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/itmText"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/itmText"
         app:srcCompat="@android:drawable/btn_star_big_on" />
 
     <TextView
         android:id="@+id/itmPackageName"
-        android:layout_width="115dp"
-        android:layout_height="38dp"
-        android:layout_marginStart="3dp"
-        android:layout_marginTop="12dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
         android:text="TextView"
-        app:layout_constraintStart_toStartOf="@+id/itmTitle"
-        app:layout_constraintTop_toBottomOf="@+id/itmTitle" />
+        app:layout_constraintBottom_toTopOf="@+id/itmText"
+        app:layout_constraintStart_toStartOf="@+id/itmText" />
 
     <TextView
         android:id="@+id/itmTitle"
-        android:layout_width="112dp"
-        android:layout_height="44dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="134dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="16dp"
         android:text="TextView"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/itmPackageName"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/itmText"
-        android:layout_width="76dp"
-        android:layout_height="34dp"
-        android:layout_marginTop="43dp"
-        android:layout_marginBottom="43dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="1dp"
         android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="@+id/itmBtnDel"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/itmPackageName" />
+        app:layout_constraintBottom_toBottomOf="@+id/itmBtnImpor"
+        app:layout_constraintEnd_toStartOf="@+id/itmBtnDel"
+        app:layout_constraintStart_toEndOf="@+id/itmBtnImpor"
+        app:layout_constraintTop_toTopOf="@+id/itmBtnImpor" />
+
+    <ImageButton
+        android:id="@+id/itmBtnneces"
+        android:layout_width="55dp"
+        android:layout_height="49dp"
+        app:srcCompat="@android:drawable/ic_menu_myplaces"
+        tools:layout_editor_absoluteX="83dp"
+        tools:layout_editor_absoluteY="14dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
