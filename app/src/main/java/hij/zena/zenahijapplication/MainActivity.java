@@ -1,7 +1,10 @@
 package hij.zena.zenahijapplication;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
+import hij.zena.zenahijapplication.MyData.MyNote;
+import hij.zena.zenahijapplication.MyData.MyNoteAdapter;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -13,7 +16,15 @@ import android.view.Menu ;
 import android.view.MenuItem ;
 import android.view.View ;
 import android.widget.Button ;
+import android.widget.ListView;
 import android.widget.TextView ;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class MainActivity extends AppCompatActivity implements MyListener {
     private ImageButton imgbtnO;
@@ -22,7 +33,9 @@ public class MainActivity extends AppCompatActivity implements MyListener {
     private TextView txtView ;
     public static final String NOTIFICATION_CHANNEL_ID = "10001" ;
     private final static String default_notification_channel_id = "default" ;
-
+    //read: 1
+    private ListView lstv;
+    private MyNoteAdapter myNoteAdapter;
     @Override
     protected void onCreate (Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +43,13 @@ public class MainActivity extends AppCompatActivity implements MyListener {
         imgbtnO = findViewById(R.id.imgbtnO);
         imgbtnT = findViewById(R.id.imgbtnT);
         imgbtnF = findViewById(R.id.imgbtnF);
+        //read 2
+        lstv=findViewById(R.id.lstv);
+        myNoteAdapter =new MyNoteAdapter(this,R.layout.msg_item_layout);
+        //read 3: set adapter to listview (connect the the data ro list view
+        lstv.setAdapter(myNoteAdapter);
+        readNotfsFromFireBase("");
+//
         imgbtnO.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -80,7 +100,36 @@ public class MainActivity extends AppCompatActivity implements MyListener {
     }
 
 
+    //read 5:
+    /**
+     * read tasks rom firebase and fill the adapter data structure
+     * s- is text to search, if it is empty the method show all results
+     * @param s
+     */
+    private void readNotfsFromFireBase(String s)
+    {
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference();
+        String uid = FirebaseAuth.getInstance().getUid();// cuurent user id.
 
+        //اضافة امكانية "التحتلن" بكل تغيير سيحصل على القيم في قاعدة البيانات
+        ref.child("myNotes").child(uid).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                myNoteAdapter.clear();
+                for (DataSnapshot d:dataSnapshot.getChildren())
+                {
+                    MyNote t=d.getValue(MyNote.class);
+                    myNoteAdapter.add(t);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+    }
 
 @Override
 public boolean onCreateOptionsMenu (Menu menu) {
