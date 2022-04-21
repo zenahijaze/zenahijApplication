@@ -53,7 +53,6 @@ public class MainActivity extends AppCompatActivity implements MyListener {
         imgbtnO.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(),deletedmassege.class));
             }
 
         });

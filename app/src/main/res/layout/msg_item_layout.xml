@@ -29,14 +29,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@android:drawable/btn_star_big_on" />
 
-    <TextView
-        android:id="@+id/itmPackageName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <ImageButton
+        android:id="@+id/itmBtnneces"
+        android:layout_width="55dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
-        android:text="TextView"
-        app:layout_constraintBottom_toTopOf="@+id/itmText"
-        app:layout_constraintStart_toStartOf="@+id/itmText" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/itmBtnImpor"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/ic_menu_myplaces" />
 
     <TextView
         android:id="@+id/itmTitle"
@@ -59,12 +61,13 @@
         app:layout_constraintStart_toEndOf="@+id/itmBtnImpor"
         app:layout_constraintTop_toTopOf="@+id/itmBtnImpor" />
 
-    <ImageButton
-        android:id="@+id/itmBtnneces"
-        android:layout_width="55dp"
-        android:layout_height="49dp"
-        app:srcCompat="@android:drawable/ic_menu_myplaces"
-        tools:layout_editor_absoluteX="83dp"
-        tools:layout_editor_absoluteY="14dp" />
+    <TextView
+        android:id="@+id/itmPackageName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/itmText"
+        app:layout_constraintStart_toStartOf="@+id/itmText" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

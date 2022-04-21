@@ -16,9 +16,6 @@
             android:name=".importantmassege"
             android:exported="true" />
         <activity
-            android:name=".deletedmassege"
-            android:exported="true" />
-        <activity
             android:name=".splashscreen"
             android:exported="true" />
         <activity

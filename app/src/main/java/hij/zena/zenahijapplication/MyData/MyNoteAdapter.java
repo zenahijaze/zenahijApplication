@@ -9,7 +9,10 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -56,7 +59,7 @@ public class MyNoteAdapter extends ArrayAdapter<MyNote>
         BtnDel.setOnClickListener(new View.OnClickListener() {
                                       @Override
                                       public void onClick(View v) {
-                                          FirebaseDatabase.getInstance().getReference().child("myNotes").child(item.getKey()).removeValue(new DatabaseReference.CompletionListener() {
+                                          FirebaseDatabase.getInstance().getReference().child("myNotes").child(item.getOwner()).child(item.getKey()).removeValue(new DatabaseReference.CompletionListener() {
                                               @Override
                                               public void onComplete(@Nullable DatabaseError error, @NonNull DatabaseReference ref) {
 
@@ -69,10 +72,11 @@ public class MyNoteAdapter extends ArrayAdapter<MyNote>
         BtnImpor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FirebaseDatabase.getInstance().getReference().child("myNotes").child(item.getKey()).removeValue(new DatabaseReference.CompletionListener() {
+                item.setIsimportant(!item.isIsimportant());
+                FirebaseDatabase.getInstance().getReference().child("myNotes").child(item.getOwner()).child(item.getKey()).setValue(item).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
-                    public void onComplete(@Nullable DatabaseError error, @NonNull DatabaseReference ref) {
-
+                    public void onComplete(@NonNull Task<Void> task) {
+                        Toast.makeText(getContext(), "updated", Toast.LENGTH_SHORT).show();
                     }
                 });
             }
@@ -80,10 +84,11 @@ public class MyNoteAdapter extends ArrayAdapter<MyNote>
         Btnneces.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FirebaseDatabase.getInstance().getReference().child("myNotes").child(item.getKey()).removeValue(new DatabaseReference.CompletionListener() {
+                item.setIsnecessity(!item.isnecessity());
+                FirebaseDatabase.getInstance().getReference().child("myNotes").child(item.getOwner()).child(item.getKey()).setValue(item).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
-                    public void onComplete(@Nullable DatabaseError error, @NonNull DatabaseReference ref) {
-
+                    public void onComplete(@NonNull Task<Void> task) {
+                        Toast.makeText(getContext(), "updated", Toast.LENGTH_SHORT).show();
                     }
                 });
             }

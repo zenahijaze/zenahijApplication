@@ -76,7 +76,8 @@ public class MainNotesActivity extends AppCompatActivity implements DialogInterf
                 for (DataSnapshot d:dataSnapshot.getChildren())
                 {
                     MyNote t=d.getValue(MyNote.class);
-                    myNoteAdapter.add(t);
+                    if(t.isnecessity()==false && t.isIsimportant()==false)
+                         myNoteAdapter.add(t);
                 }
             }
 
