@@ -9,10 +9,14 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -25,11 +29,24 @@ public class importantmassege extends AppCompatActivity implements DialogInterfa
     //read: 1
     private ListView lstvmassege;
     private MyNoteAdapter myNoteAdapter;
-
+    private TextView txtView ;
+    private Button btnsearch;
+    private TextInputEditText searchv;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_importantmassege);
+        btnsearch=findViewById(R.id.btnSearch);
+        searchv=findViewById(R.id.searchv);
+        btnsearch.setOnClickListener(new View.OnClickListener(){
+        @Override
+        public void onClick(View v) {
+            String s = searchv.getText().toString();
+            readTasksFromFireBase(s);
+        }
+    });
+
+
         imgv2 = findViewById(R.id.imgv1);
         //read 2
         lstvmassege=findViewById(R.id.lstvmassege);
@@ -75,6 +92,11 @@ public class importantmassege extends AppCompatActivity implements DialogInterfa
                 for (DataSnapshot d:dataSnapshot.getChildren())
                 {
                     MyNote t=d.getValue(MyNote.class);
+                    if(s.length()==0) myNoteAdapter.add(t);
+                    else
+                    if((t.getPkgname().contains(s) ||t.getText().contains(s)||t.getTitle().contains((s)) ))
+                        myNoteAdapter.add(t);
+
                     if(t.isIsimportant())
                         myNoteAdapter.add(t);
                 }

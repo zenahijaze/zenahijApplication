@@ -19,6 +19,7 @@ import android.widget.Button ;
 import android.widget.ListView;
 import android.widget.TextView ;
 
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -26,11 +27,15 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.Locale;
+
 public class MainActivity extends AppCompatActivity implements MyListener {
     private ImageButton imgbtnO;
     private ImageButton imgbtnT;
     private ImageButton imgbtnF;
     private TextView txtView ;
+    private Button btnsearch;
+    private TextInputEditText searchv;
     public static final String NOTIFICATION_CHANNEL_ID = "10001" ;
     private final static String default_notification_channel_id = "default" ;
     //read: 1
@@ -40,6 +45,15 @@ public class MainActivity extends AppCompatActivity implements MyListener {
     protected void onCreate (Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        btnsearch=findViewById(R.id.btnSearch);
+        searchv=findViewById(R.id.searchv);
+        btnsearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String s = searchv.getText().toString();
+                readNotfsFromFireBase(s);
+            }
+        });
         imgbtnO = findViewById(R.id.imgbtnO);
         imgbtnT = findViewById(R.id.imgbtnT);
         imgbtnF = findViewById(R.id.imgbtnF);
@@ -118,7 +132,11 @@ public class MainActivity extends AppCompatActivity implements MyListener {
                 for (DataSnapshot d:dataSnapshot.getChildren())
                 {
                     MyNote t=d.getValue(MyNote.class);
-                    myNoteAdapter.add(t);
+                    if(s.length()==0) myNoteAdapter.add(t);
+                    else
+                    if((t.getPkgname().contains(s) ||t.getText().contains(s)||t.getTitle().contains((s)) ))
+                        myNoteAdapter.add(t);
+
                 }
             }
 
