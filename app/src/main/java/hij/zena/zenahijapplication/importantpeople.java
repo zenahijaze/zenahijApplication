@@ -37,6 +37,7 @@ public class importantpeople extends AppCompatActivity implements DialogInterfac
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_importantpeople);
         searchv=findViewById(R.id.searchv);
+        btnsearch=findViewById(R.id.btnSearch);
         btnsearch.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
