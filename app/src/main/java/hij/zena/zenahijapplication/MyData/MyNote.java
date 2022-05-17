@@ -68,16 +68,11 @@ public class MyNote
         this.isimportant = isimportant;
     }
 
-    public boolean isnecessity() { return isnecessity;}
+    public boolean isIsnecessity() {
+        return isnecessity;
+    }
+
     public void setIsnecessity(boolean isnecessity) {
         this.isnecessity = isnecessity;
     }
-
-
-
-
-
-
-
-
 }

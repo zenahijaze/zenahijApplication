@@ -95,7 +95,8 @@ public class Mynotificationservice extends NotificationListenerService {
                     Toast.makeText(getApplicationContext(), "successfuly adding", Toast.LENGTH_SHORT).show();
 
                 } else {
-                    Toast.makeText(getApplicationContext(), "add not successful", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "add not successful"+ task.getException(), Toast.LENGTH_SHORT).show();
+                    task.getException().printStackTrace();
 
                 }
             }

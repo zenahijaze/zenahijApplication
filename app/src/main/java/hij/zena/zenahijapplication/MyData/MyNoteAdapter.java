@@ -84,7 +84,7 @@ public class MyNoteAdapter extends ArrayAdapter<MyNote>
         Btnneces.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                item.setIsnecessity(!item.isnecessity());
+                item.setIsnecessity(!item.isIsnecessity());
                 FirebaseDatabase.getInstance().getReference().child("myNotes").child(item.getOwner()).child(item.getKey()).setValue(item).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
