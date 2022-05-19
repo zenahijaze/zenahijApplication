@@ -8,52 +8,42 @@
     android:backgroundTint="#CE019575"
     tools:context=".MainActivity">
 
-    <ImageButton
-        android:id="@+id/imgbtnO"
+    <LinearLayout
+        android:id="@+id/linearLayout4"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="7dp"
-        android:layout_marginBottom="7dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imgbtnF"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imgbtnT"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/reanoon_foreground" />
-
-    <ImageButton
-        android:id="@+id/imgbtnT"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginEnd="25dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imgbtnO"
-        app:layout_constraintEnd_toStartOf="@+id/imgbtnO"
-        app:layout_constraintStart_toEndOf="@+id/imgbtnF"
-        app:layout_constraintTop_toTopOf="@+id/imgbtnF"
-        app:srcCompat="@android:drawable/btn_star_big_on" />
-
-    <ImageButton
-        android:id="@+id/imgbtnF"
-        android:layout_width="0dp"
-        android:layout_height="113dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="19dp"
-        app:layout_constraintEnd_toStartOf="@+id/imgbtnT"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/ic_menu_myplaces" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/imgbtnF"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="19dp"
+            app:srcCompat="@android:drawable/ic_menu_myplaces" />
+
+        <ImageButton
+            android:id="@+id/imgbtnT"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginEnd="25dp"
+            app:srcCompat="@android:drawable/btn_star_big_on" />
+
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_marginTop="100dp"
+        android:layout_width="421dp"
+        android:layout_height="588dp"
         android:orientation="vertical"
         android:padding="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgbtnF">
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout4">
 
         <Button
             android:id="@+id/btnCreateNotification"

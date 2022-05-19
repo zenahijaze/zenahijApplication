@@ -30,7 +30,6 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity implements MyListener {
-    private ImageButton imgbtnO;
     private ImageButton imgbtnT;
     private ImageButton imgbtnF;
     private TextView txtView ;
@@ -54,7 +53,6 @@ public class MainActivity extends AppCompatActivity implements MyListener {
                 readNotfsFromFireBase(s);
             }
         });
-        imgbtnO = findViewById(R.id.imgbtnO);
         imgbtnT = findViewById(R.id.imgbtnT);
         imgbtnF = findViewById(R.id.imgbtnF);
         //read 2
@@ -64,12 +62,6 @@ public class MainActivity extends AppCompatActivity implements MyListener {
         lstv.setAdapter(myNoteAdapter);
         readNotfsFromFireBase("");
 //
-        imgbtnO.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-            }
-
-        });
 
         imgbtnT.setOnClickListener(new View.OnClickListener() {
             @Override

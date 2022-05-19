@@ -88,12 +88,12 @@ public class importantpeople extends AppCompatActivity implements DialogInterfac
                 for (DataSnapshot d:dataSnapshot.getChildren())
                 {
                     MyNote t=d.getValue(MyNote.class);
-                    if(s.length()==0) myNoteAdapter.add(t);
-                    else
-                    if((t.getPkgname().contains(s) ||t.getText().contains(s)||t.getTitle().contains((s)) ))
+                    if(s.length()==0 && t.isIsnecessity())
                         myNoteAdapter.add(t);
-                    if(t.isIsnecessity())
-                      myNoteAdapter.add(t);
+                    else
+                        if(t.isIsnecessity()&& (t.getPkgname().contains(s) ||t.getText().contains(s)||t.getTitle().contains((s)) ))
+                        myNoteAdapter.add(t);
+
                 }
             }
 

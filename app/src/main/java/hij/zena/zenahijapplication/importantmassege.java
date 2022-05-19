@@ -92,13 +92,13 @@ public class importantmassege extends AppCompatActivity implements DialogInterfa
                 for (DataSnapshot d:dataSnapshot.getChildren())
                 {
                     MyNote t=d.getValue(MyNote.class);
-                    if(s.length()==0) myNoteAdapter.add(t);
+                    if(s.length()==0&& t.isIsimportant())
+                        myNoteAdapter.add(t);
                     else
-                    if((t.getPkgname().contains(s) ||t.getText().contains(s)||t.getTitle().contains((s)) ))
+                      if((t.isIsimportant()&&t.getPkgname().contains(s) ||t.getText().contains(s)||t.getTitle().contains((s)) ))
                         myNoteAdapter.add(t);
 
-                    if(t.isIsimportant())
-                        myNoteAdapter.add(t);
+
                 }
             }
 
