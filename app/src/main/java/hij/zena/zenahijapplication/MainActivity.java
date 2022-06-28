@@ -139,23 +139,11 @@ public class MainActivity extends AppCompatActivity implements MyListener {
         });
 
     }
-
-@Override
-public boolean onCreateOptionsMenu (Menu menu) {
+    @Override
+    public boolean onCreateOptionsMenu (Menu menu) {
         getMenuInflater().inflate(R.menu. my_menu, menu) ; //Menu Resource, Menu
         return true;
         }
-    @Override
-    public boolean onOptionsItemSelected (MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id. action_settings :
-                Intent intent = new Intent("android.settings.ACTION_NOTIFICATION_LISTENER_SETTINGS" ) ;
-                startActivity(intent) ;
-                return true;
-            default :
-                return super .onOptionsItemSelected(item) ;
-        }
-    }
 
 
     @Override

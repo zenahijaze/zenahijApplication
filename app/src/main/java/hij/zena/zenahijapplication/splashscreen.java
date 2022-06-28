@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageView;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class splashscreen extends AppCompatActivity {
     private ImageView imview;
 
@@ -24,12 +26,23 @@ public class splashscreen extends AppCompatActivity {
                 int ms=3*1000;//milliseconnds
                 try {
                     sleep(ms);
-                    startActivity(new Intent(getApplicationContext(),MainActivity.class));
-                } catch (InterruptedException e) {
+                    finish();
+                    //فحص هل تم الدخول مسبقا
+                    FirebaseAuth auth=FirebaseAuth.getInstance();
+                    if(auth.getCurrentUser()!=null)
+                        startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                    else
+                    {
+                        startActivity(new Intent(getApplicationContext(),signinActivity2.class));
+                    }
+
+                }
+                catch (InterruptedException e) {
                     e.printStackTrace();
                 }
             }
         };
+        th.start();
         imview=findViewById(R.id.imview);
     }
 }

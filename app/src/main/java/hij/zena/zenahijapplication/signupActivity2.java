@@ -74,7 +74,8 @@ public class signupActivity2 extends AppCompatActivity {
     {
         FirebaseAuth auth=FirebaseAuth.getInstance();
         //request
-        auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+        auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this,
+                new OnCompleteListener<AuthResult>() {
             //response handler
             @Override
             public void onComplete(@NonNull Task<AuthResult> task)
@@ -87,7 +88,8 @@ public class signupActivity2 extends AppCompatActivity {
                 else
                 {
                     //dialog
-                    Toast.makeText(getApplicationContext(), ""+task.isSuccessful()+'\n'+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), ""+task.isSuccessful()+'\n'+task.getException()
+                            .getMessage(), Toast.LENGTH_SHORT).show();
                 }
 
             }

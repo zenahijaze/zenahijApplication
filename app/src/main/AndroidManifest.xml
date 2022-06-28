@@ -17,15 +17,17 @@
             android:exported="true" />
         <activity
             android:name=".splashscreen"
-            android:exported="true" />
+            android:exported="true" >
+              <intent-filter>
+                     <action android:name="android.intent.action.MAIN" />
+
+                     <category android:name="android.intent.category.LAUNCHER" />
+              </intent-filter>
+        </activity>
         <activity
             android:name=".signinActivity2"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".signupActivity2"
@@ -33,7 +35,7 @@
         <activity
             android:name=".MainActivity"
             android:exported="true"></activity>
-
+<!--  1.اسم السيرفس الانتينت فيلتر بلقط كل اشي بخص النوتيفيكيشن-->
         <service
             android:name=".Mynotificationservice"
             android:label="@string/app_name"

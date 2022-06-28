@@ -41,11 +41,12 @@ public class MyNoteAdapter extends ArrayAdapter<MyNote>
      */
     @NonNull
     @Override
-    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent)
+    {
         //View v=View.inflate(getContext(), R.layout.task_item_layout,parent);
         //بناء واجهة لمعطى واحد
         View v= LayoutInflater.from(getContext()).inflate(R.layout.msg_item_layout,parent,false);
-        // استخراج المعطر حسب رقمه
+        // استخراج المعطى حسب رقمه
         MyNote item = getItem(position);
 
         //تجهيز مؤشر لكل كائن على الواجهة
@@ -56,24 +57,30 @@ public class MyNoteAdapter extends ArrayAdapter<MyNote>
         ImageButton BtnDel =v.findViewById(R.id.itmBtnDel);
         ImageButton Btnneces=v.findViewById(R.id.itmBtnneces);
 
-        BtnDel.setOnClickListener(new View.OnClickListener() {
-                                      @Override
-                                      public void onClick(View v) {
-                                          FirebaseDatabase.getInstance().getReference().child("myNotes").child(item.getOwner()).child(item.getKey()).removeValue(new DatabaseReference.CompletionListener() {
-                                              @Override
-                                              public void onComplete(@Nullable DatabaseError error, @NonNull DatabaseReference ref) {
+        BtnDel.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                FirebaseDatabase.getInstance().getReference().child("myNotes").child(item.getOwner()).child
+                        (item.getKey()).removeValue(new DatabaseReference.CompletionListener()//للمحي
+                {
+                    @Override
+                    public void onComplete(@Nullable DatabaseError error, @NonNull DatabaseReference ref)
+                    {
 
-                                              }
+                    }
 
-                                          });
-                                      }
-                                  });
+                });
+            }
+        });
 
         BtnImpor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 item.setIsimportant(!item.isIsimportant());
-                FirebaseDatabase.getInstance().getReference().child("myNotes").child(item.getOwner()).child(item.getKey()).setValue(item).addOnCompleteListener(new OnCompleteListener<Void>() {
+                FirebaseDatabase.getInstance().getReference().child("myNotes").child(item.getOwner()).child
+                        (item.getKey()).setValue(item).addOnCompleteListener(new OnCompleteListener<Void>() {//addOnCompleteListenerبتفحص اذا العملية تمت
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         Toast.makeText(getContext(), "updated", Toast.LENGTH_SHORT).show();
@@ -85,7 +92,8 @@ public class MyNoteAdapter extends ArrayAdapter<MyNote>
             @Override
             public void onClick(View v) {
                 item.setIsnecessity(!item.isIsnecessity());
-                FirebaseDatabase.getInstance().getReference().child("myNotes").child(item.getOwner()).child(item.getKey()).setValue(item).addOnCompleteListener(new OnCompleteListener<Void>() {
+                FirebaseDatabase.getInstance().getReference().child("myNotes").child(item.getOwner()).child
+                        (item.getKey()).setValue(item).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         Toast.makeText(getContext(), "updated", Toast.LENGTH_SHORT).show();
@@ -97,5 +105,6 @@ public class MyNoteAdapter extends ArrayAdapter<MyNote>
         title.setText(item.getTitle());
         PackageName.setText(item.getPkgname());
         return v;
-    }}
+    }
+}
 

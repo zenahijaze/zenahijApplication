@@ -41,8 +41,8 @@ public class importantmassege extends AppCompatActivity implements DialogInterfa
         btnsearch.setOnClickListener(new View.OnClickListener(){
         @Override
         public void onClick(View v) {
-            String s = searchv.getText().toString();
-            readTasksFromFireBase(s);
+            String s = searchv.getText().toString();//كبس على مستطيل البحث عشان اقدر اكتب
+            readTasksFromFireBase(s);//وظيفتها القراءة من مصدر البيانات وتنزيل المعطيات
         }
     });
 
@@ -96,7 +96,7 @@ public class importantmassege extends AppCompatActivity implements DialogInterfa
                         myNoteAdapter.add(t);
                     else
                       if((t.isIsimportant()&&t.getPkgname().contains(s) ||t.getText().contains(s)||t.getTitle().contains((s)) ))
-                        myNoteAdapter.add(t);
+                        myNoteAdapter.add(t);//اذا الرسالة مهمة
 
 
                 }

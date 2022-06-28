@@ -37,7 +37,7 @@ public class MainNotesActivity extends AppCompatActivity implements DialogInterf
         myNoteAdapter =new MyNoteAdapter(this,R.layout.msg_item_layout);
         //read 3: set adapter to listview (connect the the data ro list view
         lstv.setAdapter(myNoteAdapter);
-        readTasksFromFireBase("");
+        readTasksFromFireBase("");//بتقرا الرسائل الي وصلت من ال firebase وبتنزلهن على ال listview
 //
 //        fabAdd=findViewById(R.id.fabAdd);
 //        fabAdd.setOnClickListener(new View.OnClickListener() {
@@ -52,9 +52,10 @@ public class MainNotesActivity extends AppCompatActivity implements DialogInterf
 
     @Override
     protected void onResume() {
-        super.onResume();
+        super.onResume();//تشتغل عندما ندخل الى fragment
+                         //يبدا يتفاعل مع المستخدم,يستمر النشاط في هذة الحالة حتى يحدث شيء لاخذ التركيز من التطبيق
 
-        readTasksFromFireBase("");
+        readTasksFromFireBase(""); //وظيفتها القراءة من مصدر البيانات وتنزيل المعطيات
     }
 
     //read 5:
@@ -69,11 +70,11 @@ public class MainNotesActivity extends AppCompatActivity implements DialogInterf
         String uid = FirebaseAuth.getInstance().getUid();// cuurent user id.
 
                       //اضافة امكانية "التحتلن" بكل تغيير سيحصل على القيم في قاعدة البيانات
-        ref.child("myNotes").child(uid).addValueEventListener(new ValueEventListener() {
+        ref.child("myNotes").child(uid).addValueEventListener(new ValueEventListener() {//معالج حدث يعيد كل الذي تحت العنوان children
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 myNoteAdapter.clear();
-                for (DataSnapshot d:dataSnapshot.getChildren())
+                for (DataSnapshot d:dataSnapshot.getChildren())//dataSnapshotهي نسخة عن كل البيانات الموجودة
                 {
                     MyNote t=d.getValue(MyNote.class);
                     if(t.isIsnecessity()==false && t.isIsimportant()==false)
@@ -82,7 +83,7 @@ public class MainNotesActivity extends AppCompatActivity implements DialogInterf
             }
 
             @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
+            public void onCancelled(@NonNull DatabaseError databaseError) {// تعمل هذة الدالة عندما نعطل التنزيل
 
             }
         });

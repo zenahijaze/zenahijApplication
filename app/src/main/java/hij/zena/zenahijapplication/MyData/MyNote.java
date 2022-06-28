@@ -7,10 +7,10 @@ public class MyNote
 
     private String title;
     private String text;
-    private String pkgname;
-   private boolean isimportant;
+    private String pkgname;//اسم المُرسل
+   private boolean isimportant;//اهمية الرسالة
    private boolean isdeleteed;
-    private boolean isnecessity;
+    private boolean isnecessity;//اذا الرسالة من شخص مهم
 
     public boolean isIsdeleteed() {
         return isdeleteed;

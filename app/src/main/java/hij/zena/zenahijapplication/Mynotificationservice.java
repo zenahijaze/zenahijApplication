@@ -20,7 +20,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import androidx.annotation.NonNull;
 import hij.zena.zenahijapplication.MyData.MyNote;
 
-public class Mynotificationservice extends NotificationListenerService {
+public class Mynotificationservice extends NotificationListenerService {//بشتغل زي الlistener بقلنا وينتا بصير في حدث, لما يصير في عنا حدث بيجي
+    // عالpublic void onNotificationPosted (StatusBarNotification sbn)
     public Mynotificationservice() {
     }
 
@@ -41,7 +42,7 @@ public class Mynotificationservice extends NotificationListenerService {
     }
 
     @Override
-    public void onNotificationPosted (StatusBarNotification sbn) {
+    public void onNotificationPosted (StatusBarNotification sbn) {//بتوصل الرسالة الي وصلت بالنوتيفيكيشين بهذا الشكل
         Log. i ( TAG , "********** onNotificationPosted" ) ;
         Log. i ( TAG , "ID :" + sbn.getId() + " \t " + sbn.getNotification(). tickerText + " \t " + sbn.getPackageName()) ;
         //
@@ -57,7 +58,8 @@ public class Mynotificationservice extends NotificationListenerService {
                 " \npackageName: " + packageName +
                 " \nTitle      : " + title +
                 " \nText       : " + text);
-        saveNote(packageName,title,text);
+        //(packageName,title,textبالفقرة السابقة احنا بنستخرج المعلومات الي بالنوتيفيكيشين بتوصل عنا منها
+        saveNote(packageName,title,text);//هاي بتحفظلنا المعلومات الي استخرجناها من النوتيفيكيشين بال firebase
 //        switch (packageName) {
 //            case pkgWX:
 //                new WXClient(getApplicationContext()).onNotification(title, text);
@@ -65,7 +67,7 @@ public class Mynotificationservice extends NotificationListenerService {
 //            case pkgThis:
 //                App.timeCheckNotificationListenerServiceIsWorking = new Date().getTime();
 //                Log.i(TAG, "onNotificationPosted: time: " + App.timeCheckNotificationListenerServiceIsWorking);
-//                break;
+//                 break;
 //        }
         //
         myListener .setValue( "Post: " +"Notification - : " +
@@ -75,7 +77,7 @@ public class Mynotificationservice extends NotificationListenerService {
     }
 
     private void saveNote(String packageName, String title, String text) {
-        MyNote t = new MyNote();
+        MyNote t = new MyNote();//بتعمل كائن من نوع MyNote
         t.setTitle(title);
         t.setText(text);
         t.setPkgname(packageName);
@@ -88,9 +90,9 @@ public class Mynotificationservice extends NotificationListenerService {
         t.setKey(key);
         //add tasks to current user.
         //just this user can see/read this tasks
-        ref.child("myNotes").child(uid).child(key).setValue(t).addOnCompleteListener(new OnCompleteListener<Void>() {
+        ref.child("myNotes").child(uid).child(key).setValue(t).addOnCompleteListener(new OnCompleteListener<Void>() {//هاي بتخليني بس انا اشوف الهودعوت الي الي وكل واحد الي الو
             @Override
-            public void onComplete(@NonNull Task<Void> task) {//response
+            public void onComplete(@NonNull Task<Void> task) {//response//  اذا تم الحفظ او اذا لا  onComplete  بس تتم عملية الحفظ برجعلي جواب
                 if (task.isSuccessful()) {
                     Toast.makeText(getApplicationContext(), "successfuly adding", Toast.LENGTH_SHORT).show();
 
